@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Colors - Dark Theme */
+  --color-background: #0a0a0a;
+  --color-background-elevated: #111111;
+  --color-background-subtle: #1a1a1a;
+  --color-foreground: #ffffff;
+  --color-muted: #a1a1aa;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
+
+  /* Accent Colors */
+  --color-primary: #6366f1;
+  --color-primary-hover: #818cf8;
+  --color-secondary: #8b5cf6;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* Card backgrounds */
+  --color-card: rgba(255, 255, 255, 0.03);
+  --color-card-hover: rgba(255, 255, 255, 0.05);
+
+  /* Typography */
+  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-cal-sans, var(--font-inter), "Inter", system-ui, sans-serif);
+  --font-mono: "Fragment Mono", "JetBrains Mono", monospace;
+
+  /* Spacing Scale */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.3);
+  --shadow-glow-white: 0 8px 30px rgba(255, 255, 255, 0.15);
+
+  /* Animations */
+  --animate-fade-in: fade-in-up 0.5s ease-out;
+  --animate-pulse-slow: pulse-slow 3s infinite;
+  --animate-gradient-shift: gradient-shift 8s ease infinite;
+}
+
+/* Smooth scrolling - respect user preferences for reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom CSS Variables for Glassmorphism */
+:root {
+  --glass-background: rgba(10, 10, 10, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 12px;
+
+  /* Text opacity variants */
+  --text-primary: rgba(255, 255, 255, 1);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --text-faint: rgba(255, 255, 255, 0.3);
+
+  /* Gradient colors for hero */
+  --gradient-purple: rgba(120, 119, 198, 0.3);
+  --gradient-indigo: rgba(99, 102, 241, 0.15);
+  --gradient-violet: rgba(139, 92, 246, 0.1);
+}
+
+/* Animation Keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Utility Classes for Glassmorphism */
+.glass {
+  background: var(--glass-background);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+/* Gradient backgrounds */
+.gradient-hero {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% -20%,
+    var(--gradient-purple),
+    transparent
+  );
+}
+
+.gradient-cta {
+  background:
+    linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16162a 100%),
+    radial-gradient(ellipse at center, var(--gradient-indigo) 0%, transparent 70%),
+    radial-gradient(
+      ellipse at 20% 80%,
+      var(--gradient-violet) 0%,
+      transparent 50%
+    );
+}
+
+.gradient-icon {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-foreground);
+}

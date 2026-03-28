@@ -1,0 +1,10 @@
+export { Header } from "./header";
+export { Hero } from "./hero";
+export { LogoCloud } from "./logo-cloud";
+export { FeatureGrid } from "./feature-grid";
+export { BentoGrid } from "./bento-grid";
+export { IntegrationShowcase } from "./integration-showcase";
+export { Testimonials } from "./testimonials";
+export { OpenSource } from "./open-source";
+export { CTASection } from "./cta-section";
+export { Footer } from "./footer";
